@@ -1,0 +1,6 @@
+name: NodeWhitelist
+main: com.github.flash619.nodewhitelist.NodeWhitelist
+version: 2.1
+load: startup
+description: Whitelisting with a permissions node!
+author: Flash619
