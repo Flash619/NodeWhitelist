@@ -29,17 +29,22 @@ public class NodeWhitelist extends JavaPlugin{
 		Logger log = this.getLogger();
 		log.info("NodeWhitelist Loading...");
 		config.LoadConfig();
-		
+		if(!config.GetBoolean("General.WhitelistEnabled")){
+			log.warning("NodeWhitelist was disabled in the config and will be unloaded.");
+			this.getPluginLoader().disablePlugin(this);
+		}else{
 		LoginListener = new Login(this);
 		TalkListener = new Talk(this);
 		InteractListener = new Interact(this);
-		
 		Bukkit.getServer().getPluginManager().registerEvents(LoginListener, this);
 		Bukkit.getServer().getPluginManager().registerEvents(TalkListener, this);
 		Bukkit.getServer().getPluginManager().registerEvents(InteractListener, this);
-		
-		log.info("NodeWhitelist Enabled");
+		log.info("NodeWhitelist Loaded Succesfully!");
+		}
 	}
-	public void onDisable(){}
+	public void onDisable(){
+		Logger log = this.getLogger();
+		log.info("NodeWhitelist Unloaded.");
+	}
 
 }

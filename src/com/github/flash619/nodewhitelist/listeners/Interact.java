@@ -1,11 +1,16 @@
 package com.github.flash619.nodewhitelist.listeners;
 
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.entity.EntityDamageEvent;
+import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
+import org.bukkit.event.entity.EntityTargetEvent;
 import org.bukkit.event.player.PlayerPickupItemEvent;
 
 import com.github.flash619.nodewhitelist.NodeWhitelist;
@@ -51,5 +56,32 @@ public class Interact implements Listener{
 			}
 		}
 	}
-
+	@EventHandler(priority = EventPriority.HIGH)
+	public void InteractDamageMob(EntityDamageEvent event){
+		if(event.getCause() == DamageCause.ENTITY_ATTACK){
+			final EntityDamageByEntityEvent realEvent = (EntityDamageByEntityEvent) event;
+			if(realEvent.getDamager() instanceof Player){
+				String damagerName = ((Player) realEvent.getDamager()).getName();
+				Player HitingPlayer = Bukkit.getPlayer(damagerName);
+				if(!HitingPlayer.hasPermission("NodeWhitelist.Whitelisted")){
+					if(!Config.GetBoolean("NoneWhitelisted.Restraints.Interact")){
+					event.setCancelled(true);
+					}
+				}
+			}
+		}
+	}
+	@EventHandler(priority = EventPriority.HIGH)
+	public void InteractAggroMob(EntityTargetEvent event){
+			final EntityTargetEvent realEvent = (EntityTargetEvent) event;
+			if(realEvent.getTarget() instanceof Player){
+				String TargetName = ((Player) realEvent.getTarget()).getName();
+				Player TargetedPlayer = Bukkit.getPlayer(TargetName);
+				if(!TargetedPlayer.hasPermission("NodeWhitelist.Whitelisted")){
+					if(!Config.GetBoolean("NoneWhitelisted.Restraints.Interact")){
+					event.setCancelled(true);
+					}
+				}
+			}
+		}
 }
