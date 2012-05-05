@@ -13,9 +13,7 @@ import com.github.flash619.nodewhitelist.listeners.Talk;
 public class NodeWhitelist extends JavaPlugin{
 	
 	/* NodeWhitelist By: Flash619
-	 * All code is subject to a Creative Commons
-	 * Attribution-NonCommercial-NoDerivs 
-	 * CC BY-NC-ND License
+	 * (C)2012 Licensed under the GNU Lesser General Public License v3
 	 */
 	
 	ConfigLink config = new ConfigLink(this);

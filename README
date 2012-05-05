@@ -1,0 +1,9 @@
+NodeWhitelist
+
+NodeWhitelist is a permissions node based whitelist to allow for more flexibility, and the ability for none whitelisted players to go on your server and have a look around.
+
+Contributing
+
+I am happy to accept contributions. To do so, just make a fork on GitHub of NodeWhitelist, make your changes, and submit a pull request. I'll be happy to look it over, and merge it with NodeWhitelist if it all checks out ok. 
+
+By submitting your code to NodeWhitelist, you agree to license your submitted code under the GNU General Public License V3.
