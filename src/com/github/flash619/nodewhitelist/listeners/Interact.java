@@ -14,6 +14,7 @@ import org.bukkit.event.entity.EntityTargetEvent;
 import org.bukkit.event.player.PlayerPickupItemEvent;
 
 import com.github.flash619.nodewhitelist.NodeWhitelist;
+import com.github.flash619.nodewhitelist.Commands.whitelistWaive;
 import com.github.flash619.nodewhitelist.conf.ConfigLink;
 
 public class Interact implements Listener{
@@ -28,33 +29,41 @@ public class Interact implements Listener{
 	@EventHandler(priority = EventPriority.HIGH)
 	public void onPlaceBlock(BlockPlaceEvent event){
 		Player player = event.getPlayer();
-		
 		if(!player.hasPermission("NodeWhitelist.Whitelisted")){
+			if(!whitelistWaive.isWaived(player)){
 			if(!Config.GetBoolean("NoneWhitelisted.Restraints.Interact")){
+				if(!Config.GetString("NoneWhitelisted.Messages.Interact").equals(null)){
 				player.sendMessage(Config.GetString("NoneWhitelisted.Messages.Interact"));
+				}
 				event.setCancelled(true);
 			}
 		}
 	}
+	}
 	@EventHandler(priority = EventPriority.HIGH)
 	public void onBreakBlock(BlockBreakEvent event){
 		Player player = event.getPlayer();
-		
 		if(!player.hasPermission("NodeWhitelist.Whitelisted")){
+			if(!whitelistWaive.isWaived(player)){
 			if(!Config.GetBoolean("NoneWhitelisted.Restraints.Interact")){
+				if(!Config.GetString("NoneWhitelisted.Messages.Interact").equals(null)){
 				player.sendMessage(Config.GetString("NoneWhitelisted.Messages.Interact"));
+				}
 				event.setCancelled(true);
 			}
 		}
+	}
 	}
 	@EventHandler(priority = EventPriority.NORMAL)
 	public void onPickupItem(PlayerPickupItemEvent event){
 		Player player = event.getPlayer();
 		if(!player.hasPermission("NodeWhitelist.Whitelisted")){
+			if(!whitelistWaive.isWaived(player)){
 			if(!Config.GetBoolean("NoneWhitelisted.Restraints.Interact")){
 				event.setCancelled(true);
 			}
 		}
+	}
 	}
 	@EventHandler(priority = EventPriority.HIGH)
 	public void InteractDamageMob(EntityDamageEvent event){
@@ -64,12 +73,14 @@ public class Interact implements Listener{
 				String damagerName = ((Player) realEvent.getDamager()).getName();
 				Player HitingPlayer = Bukkit.getPlayer(damagerName);
 				if(!HitingPlayer.hasPermission("NodeWhitelist.Whitelisted")){
+					if(!whitelistWaive.isWaived(HitingPlayer)){
 					if(!Config.GetBoolean("NoneWhitelisted.Restraints.Interact")){
 					event.setCancelled(true);
 					}
 				}
 			}
 		}
+	}
 	}
 	@EventHandler(priority = EventPriority.HIGH)
 	public void InteractAggroMob(EntityTargetEvent event){
@@ -78,10 +89,12 @@ public class Interact implements Listener{
 				String TargetName = ((Player) realEvent.getTarget()).getName();
 				Player TargetedPlayer = Bukkit.getPlayer(TargetName);
 				if(!TargetedPlayer.hasPermission("NodeWhitelist.Whitelisted")){
+					if(!whitelistWaive.isWaived(TargetedPlayer)){
 					if(!Config.GetBoolean("NoneWhitelisted.Restraints.Interact")){
 					event.setCancelled(true);
 					}
 				}
 			}
 		}
+	}
 }

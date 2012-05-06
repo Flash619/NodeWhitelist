@@ -3,7 +3,7 @@
   <groupId>com.github.flash619</groupId>
   <artifactId>nodewhitelist</artifactId>
   <build>
-    <sourceDirectory>../src/com/github/flash619/nodewhitelist</sourceDirectory>
+    <sourceDirectory>src/com/github/flash619/nodewhitelist</sourceDirectory>
     <resources>
       <resource>
         <directory>src/</directory>
@@ -13,7 +13,7 @@
       </resource>
     </resources>
   </build>
-  <version>2.2</version>
+  <version>3.0</version>
   <name>NodeWhitelist</name>
   <url>https://github.com/Flash619/NodeWhitelist</url>
   <dependencies>

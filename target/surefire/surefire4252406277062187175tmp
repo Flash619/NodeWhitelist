@@ -1,5 +1,5 @@
 #surefire
-#Sat May 05 11:45:16 CDT 2012
+#Sun May 06 14:14:23 CDT 2012
 testClassesDirectory=C\:\\Users\\Flash619\\workspace\\NodeWhitelist\\target\\test-classes
 classPathUrl.2=C\:\\Users\\Flash619\\.m2\\repository\\org\\bukkit\\bukkit\\0.0.1-SNAPSHOT\\bukkit-0.0.1-SNAPSHOT.jar
 useManifestOnlyJar=true

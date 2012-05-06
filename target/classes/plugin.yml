@@ -1,6 +1,11 @@
 name: NodeWhitelist
 main: com.github.flash619.nodewhitelist.NodeWhitelist
-version: 2.2
+version: 3.0
 load: startup
 description: Whitelisting with a permissions node!
 author: Flash619
+commands:
+  WaiveConstraints:
+    description: Waive none whitelisted constraints on a specified player. "Use with caution."
+    usage: /<command> <player>
+    aliases: wc

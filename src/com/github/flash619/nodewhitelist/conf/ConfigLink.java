@@ -16,12 +16,16 @@ public class ConfigLink {
 		final FileConfiguration config = plugin.getConfig();
 		//Add config defaults
 		config.addDefault("General.WhitelistEnabled", true);
+		config.addDefault("General.WhitelistingWebsite", "www.myserver.com");
+		config.addDefault("General.EnableWebsiteMessages", true);
 		config.addDefault("NoneWhitelisted.Restraints.Interact", false);
 		config.addDefault("NoneWhitelisted.Restraints.CanTalk", false);
 		config.addDefault("NoneWhitelisted.Restraints.LoginNotice", true);
 		config.addDefault("NoneWhitelisted.Messages.Interact", "You are not whitelisted!");
 		config.addDefault("NoneWhitelisted.Messages.Speak", "You are not whitelisted and thus, cannot speak.");
 		config.addDefault("NoneWhitelisted.Messages.Login", "You are not whitelisted! Please visit www.myserver.com for whitelisting.");
+		config.addDefault("NoneWhitelisted.Messages.RestraintsWaived", "Your restraints were waived. You are still not whitelisted and your restraints will resume upon next login.");
+		config.addDefault("NoneWhitelisted.Messages.RestraintsUnWaived", "Your restraints have been re-applied.");
 		
 		plugin.getConfig().options().copyDefaults(true);
 		plugin.saveConfig();
