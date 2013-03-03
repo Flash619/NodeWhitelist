@@ -3,7 +3,7 @@ package com.github.flash619.nodewhitelist.listeners;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerChatEvent;
+import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 import com.github.flash619.nodewhitelist.NodeWhitelist;
 import com.github.flash619.nodewhitelist.Commands.whitelistWaive;
@@ -20,7 +20,7 @@ public class Talk implements Listener{
 	}
 	
 	@EventHandler
-	public void onTalk(PlayerChatEvent event){
+	public void onTalk(AsyncPlayerChatEvent event){
 		Player player = event.getPlayer();
 		if(!player.hasPermission("NodeWhitelist.Whitelisted")){
 			if(!whitelistWaive.isWaived(player)){

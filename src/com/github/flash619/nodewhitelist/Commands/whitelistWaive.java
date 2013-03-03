@@ -40,7 +40,7 @@ public class whitelistWaive implements CommandExecutor{
 	}
 	
 	@Override
-	public boolean onCommand(CommandSender sender, Command cmd, String buyflight, String[] args){
+	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
 		Logger log = plugin.getLogger();
 		ConfigLink Config = new ConfigLink(plugin);	
 		if(cmd.getName().equalsIgnoreCase("waiveconstraints")||cmd.getName().equalsIgnoreCase("wc")){
@@ -50,7 +50,7 @@ public class whitelistWaive implements CommandExecutor{
 				Player player = (Player) sender;
 				if(player.isOp()||player.hasPermission("NodeWhitelist.Waive")){
 					Player TargetPlayer = (Bukkit.getServer().getPlayer(args[0]));
-					if(TargetPlayer.equals(null)){
+					if(TargetPlayer == null){
 						sender.sendMessage(ChatColor.RED + "[ERROR]: " + ChatColor.WHITE + args[0] + " Is not a valid player!");
 						return true;
 					}else if(!TargetPlayer.hasPermission("NodeWhitelist.Whitelisted")){

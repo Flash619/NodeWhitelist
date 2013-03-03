@@ -13,19 +13,17 @@
       </resource>
     </resources>
   </build>
-  <version>3.0</version>
+  <version>3.5</version>
   <name>NodeWhitelist</name>
   <url>https://github.com/Flash619/NodeWhitelist</url>
-  <dependencies>
-    <dependency>
-      <groupId>org.bukkit</groupId>
-      <artifactId>bukkit</artifactId>
-      <version>0.0.1-SNAPSHOT</version>
-      <type>jar</type>
-      <scope>compile</scope>
-    </dependency>
-  </dependencies>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
+  <dependencies>
+  	<dependency>
+  		<groupId>org.bukkit</groupId>
+  		<artifactId>bukkit</artifactId>
+  		<version>1.4.7-R1.0</version>
+  	</dependency>
+  </dependencies>
 </project>
